@@ -1,0 +1,226 @@
+<edmx:Edmx xmlns:edmx="http://docs.oasis-open.org/odata/ns/edmx" Version="4.0">
+    <edmx:Reference Uri="https://sap.github.io/odata-vocabularies/vocabularies/UI.xml">
+        <edmx:Include Namespace="com.sap.vocabularies.UI.v1" Alias="UI"/>
+    </edmx:Reference>
+    <edmx:Reference Uri="/sap/opu/odata/sap/ZUI_NOTIFTOORDER_ROOT/$metadata">
+        <edmx:Include Namespace="cds_zui_notiftoorder_root"/>
+    </edmx:Reference>
+    <edmx:DataServices>
+        <Schema xmlns="http://docs.oasis-open.org/odata/ns/edm" Namespace="local">
+            <Annotations Target="cds_zui_notiftoorder_root.NOTIFTOORDER_ROOTType">
+                <Annotation Term="UI.SelectionFields">
+                    <Collection>
+                        <PropertyPath>Werks</PropertyPath>
+                        <PropertyPath>Auart</PropertyPath>
+                        <PropertyPath>Ingpr</PropertyPath>
+                        <PropertyPath>OrderCrtrd</PropertyPath>
+                    </Collection>
+                </Annotation>
+                <!-- To Date Chart -->
+                <Annotation Term="UI.Chart" Qualifier="ToDate_Notif_To_Order_Conversion">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Title" String="Total Conversion Percentage"/>
+                        <PropertyValue Property="Description" String="T"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>wocategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="wocategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>numberofrecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="numberofrecord"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant" Qualifier="ToDate_Notif_To_Order_Conversion">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#ToDate_Notif_To_Order_Conversion</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="wocategory" />
+                                    <PropertyValue Property="Descending" Bool="true" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MaxItems" Int="5" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="ToDate_Notif_To_Order_Conversion">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Information" />
+                        <PropertyValue Property="Description" String="Total Record"/>
+                        <PropertyValue Property="Value" Path="numberofrecord" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification" Qualifier="ToDate_Notif_To_Order_Conversion">
+                    <Collection>
+                        <Record Type="UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="ZPMCustGUI" />
+                            <PropertyValue Property="Action" String="ZPMR020" />
+                            <PropertyValue Property="RequiresContext" Bool="false" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <!-- This Month Chart -->
+                <Annotation Term="UI.Chart" Qualifier="This_Month_Notif_To_Order_Conversion">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Title" String="This Month Notification to Maintenance Order Completion"/>
+                        <PropertyValue Property="Description" String="This Month Notification to Maintenance Order Completion"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>wocategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="wocategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>numberofrecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="numberofrecord"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant" Qualifier="This_Month_Notif_To_Order_Conversion">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#This_Month_Notif_To_Order_Conversion</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="wocategory" />
+                                    <PropertyValue Property="Descending" Bool="true" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MaxItems" Int="5" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="This_Month_Notif_To_Order_Conversion">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Information" />
+                        <PropertyValue Property="Description" String="Desc"/>
+                        <PropertyValue Property="Value" Path="numberofrecord" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification" Qualifier="This_Month_Notif_To_Order_Conversion">
+                    <Collection>
+                        <Record Type="UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="ZPMCustGUI" />
+                            <PropertyValue Property="Action" String="ZPMR020" />
+                            <PropertyValue Property="RequiresContext" Bool="false" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+                <!-- Last Month Chart -->
+                <Annotation Term="UI.Chart" Qualifier= "Last_Month_Notif_To_Order_Conversion">
+                    <Record Type="UI.ChartDefinitionType">
+                        <PropertyValue Property="ChartType" EnumMember="UI.ChartType/Donut"/>
+                        <PropertyValue Property="Title" String="Last Month Notification to Maintenance Order Completion"/>
+                        <PropertyValue Property="Description" String="Last Month Notification to Maintenance Order Completion"/>
+                        <PropertyValue Property="Dimensions">
+                            <Collection>
+                                <PropertyPath>wocategory</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="DimensionAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartDimensionAttributeType">
+                                    <PropertyValue Property="Dimension" PropertyPath="wocategory"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartDimensionRoleType/Category"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="Measures">
+                            <Collection>
+                                <PropertyPath>numberofrecord</PropertyPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MeasureAttributes">
+                            <Collection>
+                                <Record Type="UI.ChartMeasureAttributeType">
+                                    <PropertyValue Property="Measure" PropertyPath="numberofrecord"/>
+                                    <PropertyValue Property="Role" EnumMember="UI.ChartMeasureRoleType/Axis1"/>
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.PresentationVariant" Qualifier="Last_Month_Notif_To_Order_Conversion">
+                    <Record>
+                        <PropertyValue Property="Visualizations">
+                            <Collection>
+                                <AnnotationPath>@UI.Chart#Last_Month_Notif_To_Order_Conversion</AnnotationPath>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="SortOrder">
+                            <Collection>
+                                <Record Type="Common.SortOrderType">
+                                    <PropertyValue Property="Property" PropertyPath="wocategory" />
+                                    <PropertyValue Property="Descending" Bool="true" />
+                                </Record>
+                            </Collection>
+                        </PropertyValue>
+                        <PropertyValue Property="MaxItems" Int="5" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.DataPoint" Qualifier="Last_Month_Notif_To_Order_Conversion">
+                    <Record Type="UI.DataPointType">
+                        <PropertyValue Property="Criticality" EnumMember="UI.CriticalityType/Information" />
+                        <PropertyValue Property="Description" String="Desc"/>
+                        <PropertyValue Property="Value" Path="numberofrecord" />
+                    </Record>
+                </Annotation>
+                <Annotation Term="UI.Identification" Qualifier="Last_Month_Notif_To_Order_Conversion">
+                    <Collection>
+                        <Record Type="UI.DataFieldForIntentBasedNavigation">
+                            <PropertyValue Property="SemanticObject" String="ZPMCustGUI" />
+                            <PropertyValue Property="Action" String="ZPMR021" />
+                            <PropertyValue Property="RequiresContext" Bool="false" />
+                        </Record>
+                    </Collection>
+                </Annotation>
+            </Annotations>
+        </Schema>
+    </edmx:DataServices>
+</edmx:Edmx>
